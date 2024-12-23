@@ -1,0 +1,29 @@
+{
+  "name": "ideaglory/flash",
+  "description": "Flash Message PHP Class",
+  "keywords": [
+    "flash",
+    "message",
+    "ideaglory",
+    "php"
+  ],
+  "homepage": "https://ideaglory.com",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "David Mat",
+      "email": "dev@ideaglory.com",
+      "homepage": "https://ideaglory.com",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Ideaglory\\": "src"
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "require": {}
+}
