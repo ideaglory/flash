@@ -1,4 +1,5 @@
 # Flash Message PHP Class
+
 ## Manage Notifications, Errors, and Form Values with Sessions
 
 A lightweight PHP utility for managing flash messages, form validation errors, and posted form values using PHP sessions.
@@ -8,6 +9,7 @@ Flash messages are temporary notifications (e.g., success, warnings, errors) dis
 ---
 
 ## Features
+
 - **Flash messages:** Supports multiple message types (`success`, `danger`, `warning`, `info`).
 - **Validation errors:** Easily manage and display form validation errors.
 - **Form repopulation:** Automatically sanitize and repopulate submitted form values.
@@ -36,7 +38,7 @@ You can set success, warning, danger, or info messages.
 $flash = new Flash();
 
 $flash->set([
-    ['text' => 'Account created successfully!', 'type' => FlashMessage::SUCCESS]
+    ['text' => 'Account created successfully!', 'type' => Flash::SUCCESS]
 ]);
 
 $data = $flash->display();
@@ -46,6 +48,7 @@ foreach ($data['messages'] as $message) {
 ```
 
 **Output:**
+
 ```html
 <div class="alert alert-success">Account created successfully!</div>
 ```
@@ -60,8 +63,8 @@ Store validation errors and repopulate form inputs.
 $flash = new Flash();
 
 $flash->set(
-    null, 
-    ['username' => 'Username is required', 'email' => 'Invalid email address'], 
+    null,
+    ['username' => 'Username is required', 'email' => 'Invalid email address'],
     ['username' => 'john_doe', 'email' => 'invalid-email']
 );
 
@@ -80,12 +83,13 @@ echo "</form>";
 ```
 
 **Output:**
+
 ```html
 <div class="error">username: Username is required</div>
 <div class="error">email: Invalid email address</div>
 <form>
-    <input type="text" name="username" value="john_doe" />
-    <input type="text" name="email" value="invalid-email" />
+  <input type="text" name="username" value="john_doe" />
+  <input type="text" name="email" value="invalid-email" />
 </form>
 ```
 
@@ -99,10 +103,10 @@ Set and display multiple types of messages in a single request.
 $flash = new Flash();
 
 $flash->set([
-    ['text' => 'Welcome back!', 'type' => FlashMessage::INFO],
-    ['text' => 'Profile updated successfully.', 'type' => FlashMessage::SUCCESS],
-    ['text' => 'Failed to update password.', 'type' => FlashMessage::DANGER],
-    ['text' => 'Verify your email address.', 'type' => FlashMessage::WARNING]
+    ['text' => 'Welcome back!', 'type' => Flash::INFO],
+    ['text' => 'Profile updated successfully.', 'type' => Flash::SUCCESS],
+    ['text' => 'Failed to update password.', 'type' => Flash::DANGER],
+    ['text' => 'Verify your email address.', 'type' => Flash::WARNING]
 ]);
 
 $data = $flash->display();
@@ -113,6 +117,7 @@ foreach ($data['messages'] as $message) {
 ```
 
 **Output:**
+
 ```html
 <div class="alert alert-info">Welcome back!</div>
 <div class="alert alert-success">Profile updated successfully.</div>
@@ -131,7 +136,7 @@ $flash = new Flash();
 
 // Set initial message
 $flash->set([
-    ['text' => 'Initial notification.', 'type' => FlashMessage::INFO]
+    ['text' => 'Initial notification.', 'type' => Flash::INFO]
 ]);
 
 $data = $flash->display();
@@ -141,16 +146,18 @@ foreach ($data['messages'] as $message) {
 
 // Set new data for the next page
 $flash->set([
-    ['text' => 'Message for the next request.', 'type' => FlashMessage::SUCCESS]
+    ['text' => 'Message for the next request.', 'type' => Flash::SUCCESS]
 ]);
 ```
 
 **First Page Output:**
+
 ```html
 <div class="alert alert-info">Initial notification.</div>
 ```
 
 **Next Page Output:**
+
 ```html
 <div class="alert alert-success">Message for the next request.</div>
 ```
@@ -171,8 +178,11 @@ echo "<textarea name='comment'>{$data['values']['comment']}</textarea>";
 ```
 
 **Output:**
+
 ```html
-<textarea name="comment">&lt;script&gt;alert(&quot;Hacked!&quot;)&lt;/script&gt;</textarea>
+<textarea name="comment">
+&lt;script&gt;alert(&quot;Hacked!&quot;)&lt;/script&gt;</textarea
+>
 ```
 
 ---
@@ -182,4 +192,5 @@ echo "<textarea name='comment'>{$data['values']['comment']}</textarea>";
 This project is licensed under the MIT License. Feel free to use and modify it as needed.
 
 ## Author
+
 Created by [IdeaGlory](https://ideaglory.com).
